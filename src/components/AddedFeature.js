@@ -1,6 +1,6 @@
-import React from 'react';
-
-const AddedFeature = props => {
+import React from "react";
+import { connect } from "react-redux";
+const AddedFeature = (props) => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
@@ -11,3 +11,20 @@ const AddedFeature = props => {
 };
 
 export default AddedFeature;
+// const mapStateToProps = state => {
+//   return {
+//     featureNameOnProps: state.featureReducer.name,
+
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   { }
+// )(AddedFeature);
+
+// <li>
+// {/* Add an onClick to run a function to remove a feature */}
+// <button className="button">X</button>
+// {props.feature.name}
+// </li>
