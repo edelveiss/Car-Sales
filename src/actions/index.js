@@ -1,13 +1,5 @@
 export const ADD_FEATURE = "ADD_FEATURE";
 export const REMOVE_FEATURE = "REMOVE_FEATURE";
-export const UPDATE_PRICE = "UPDATE_PRICE";
-
-export const updatePrice = (additionalPrice) => {
-  return {
-    type: UPDATE_PRICE,
-    payload: additionalPrice,
-  };
-};
 
 export const addFeature = (newFeature) => {
   return {
@@ -16,9 +8,9 @@ export const addFeature = (newFeature) => {
   };
 };
 
-export const removeFeature = (idFeature) => {
+export const removeFeature = (removedFeature) => {
   return {
     type: REMOVE_FEATURE,
-    payload: idFeature,
+    payload: removedFeature,
   };
 };
