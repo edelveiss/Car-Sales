@@ -1,6 +1,6 @@
 import React from "react";
 import AdditionalFeature from "./AdditionalFeature";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 const AdditionalFeatures = (props) => {
   return (
     <div className="content">
