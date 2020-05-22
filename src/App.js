@@ -80,18 +80,6 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {})(App);
-//export default App;
-
-// <div className="boxes">
-//         <div className="box">
-//           <Header />
-//           <AddedFeatures />
-//         </div>
-//         <div className="box">
-//           <AdditionalFeatures />
-//           <Total />
-//         </div>
-//       </div>
 
 const useStyles = makeStyles((theme) =>
   createStyles({

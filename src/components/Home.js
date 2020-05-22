@@ -64,23 +64,3 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
-
-// <div className="box">
-//           <Header />
-//           <div style={{ display: "flex", justifyContent: "space-around" }}>
-//             <Button
-//               style={{ width: "10rem" }}
-//               variant="contained"
-//               color="secondary"
-//               onClick={() => setFeatureToggle(!featureToggle)}
-//             >
-//               Added Features
-//             </Button>
-//             <Link to={"/car"} carItem={props.carItem}>
-//               <Button variant="contained" color="secondary">
-//                 Add / Remove Features
-//               </Button>
-//             </Link>
-//           </div>
-//           {featureToggle && <AddedFeatures carItem={props.carItem} />}
-//         </div>
