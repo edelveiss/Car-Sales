@@ -9,6 +9,7 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 
 function Home(props) {
   const classes = useStyles();
+  console.log("home props", props);
   //const [featureToggle, setFeatureToggle] = useState(false);
   return (
     <div>
@@ -23,12 +24,18 @@ function Home(props) {
           marginTop: "1rem",
         }}
       >
-        {props.cars.map((item) => {
-          console.log("item00000", item);
-          return (
-            <CardItem className={classes.root} key={item.id} item={item} />
-          );
-        })}
+        {props.cars
+          .filter((itemName) => {
+            return itemName.car.name
+              .toLowerCase()
+              .includes(props.searchTerm.toLowerCase());
+          })
+          .map((item) => {
+            console.log("item00000", item);
+            return (
+              <CardItem className={classes.root} key={item.id} item={item} />
+            );
+          })}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -14,7 +14,11 @@ import { createStyles, fade, makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 
 const App = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const classes = useStyles();
+  const handleFormChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <div className="App">
       <div className={classes.root}>
@@ -45,7 +49,8 @@ const App = (props) => {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                onChange={handleFormChange}
+                placeholder="Search your car"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
@@ -62,7 +67,7 @@ const App = (props) => {
           <Car cars={props.cars} />
         </Route>
         <Route path="/">
-          <Home />
+          <Home searchTerm={searchTerm} />
         </Route>
       </Switch>
     </div>
@@ -136,7 +141,7 @@ const useStyles = makeStyles((theme) =>
       transition: theme.transitions.create("width"),
       width: "100%",
       [theme.breakpoints.up("sm")]: {
-        width: "12ch",
+        width: "16ch",
         "&:focus": {
           width: "20ch",
         },
