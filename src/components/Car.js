@@ -1,41 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import AddedFeatures from "./AddedFeatures";
 import AdditionalFeatures from "./AdditionalFeatures";
 import Total from "./Total";
-import Button from "@material-ui/core/Button";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+
+import { useParams } from "react-router-dom";
 function Car(props) {
-  //const [featureToggle, setFeatureToggle] = useState(false);
-  const classes = useStyles();
+  const { carID } = useParams();
+  console.log("carID", carID);
+
+  const choosenCar = props.cars.find((el) => el.id === Number(carID));
+  console.log("choosencar", choosenCar);
   return (
     <div>
-      <div className="boxes">
+      <div className="boxes" style={{ marginTop: "1rem" }}>
         <div className="box">
-          <Header carItem={props.carItem} />
+          <Header item={choosenCar} />
 
-          {<AddedFeatures carItem={props.carItem} />}
+          {<AddedFeatures choosenCar={choosenCar} />}
           {/*featureToggle && <AddedFeatures carItem={props.carItem} />*/}
         </div>
-
+        {/** */}
         <div className="box">
-          <AdditionalFeatures />
-          <Total />
+          <AdditionalFeatures choosenCar={choosenCar} />
+          <Total carItem={choosenCar} />
         </div>
       </div>
     </div>
   );
 }
 export default Car;
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      "& > *": {
-        margin: theme.spacing(1),
-      },
-    },
-  })
-);
 
 // <Button
 //             variant="contained"

@@ -1,53 +1,35 @@
-import React, { useState } from "react";
-import Header from "./Header";
-import { Link } from "react-router-dom";
-import Car from "./Car";
+import React from "react";
+
+import CardItem from "./CardItem";
 import { connect } from "react-redux";
-import AddedFeatures from "./AddedFeatures";
-import AdditionalFeatures from "./AdditionalFeatures";
-import Total from "./Total";
+
 import homeImg from "../assets/hero.jpg";
-import Button from "@material-ui/core/Button";
+
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Grid from "@material-ui/core/Grid";
-//import Button from '@material-ui/core/Button';
-import Typography from "@material-ui/core/Typography";
-//import { useState } from "react";
+
 function Home(props) {
   const classes = useStyles();
-  const [featureToggle, setFeatureToggle] = useState(false);
+  //const [featureToggle, setFeatureToggle] = useState(false);
   return (
     <div>
       <div className="home-wrapper">
         <img className="home-image" src={homeImg} alt="" />
       </div>
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <Card className={classes.root}>
-            <Header />
-            <CardActions style={{ marginLeft: "4rem" }}>
-              <Button
-                size="small"
-                color="primary"
-                onClick={() => setFeatureToggle(!featureToggle)}
-              >
-                Added Features
-              </Button>
-              <Link to={"/car"} carItem={props.carItem}>
-                <Button size="small" color="primary">
-                  Add / Remove Features
-                </Button>
-              </Link>
-            </CardActions>
-            {featureToggle && <AddedFeatures carItem={props.carItem} />}
-          </Card>
-        </Grid>
-      </Grid>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "1rem",
+          marginTop: "1rem",
+        }}
+      >
+        {props.cars.map((item) => {
+          console.log("item00000", item);
+          return (
+            <CardItem className={classes.root} key={item.id} item={item} />
+          );
+        })}
+      </div>
     </div>
   );
 }

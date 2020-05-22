@@ -1,9 +1,7 @@
 import React from "react";
-import { Route, Link, Switch, NavLink } from "react-router-dom";
-import Header from "./components/Header";
-import AddedFeatures from "./components/AddedFeatures";
-import AdditionalFeatures from "./components/AdditionalFeatures";
-import Total from "./components/Total";
+import { Route, Link, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+
 import Home from "./components/Home";
 import Car from "./components/Car";
 import AppBar from "@material-ui/core/AppBar";
@@ -11,16 +9,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
-import {
-  createStyles,
-  fade,
-  Theme,
-  makeStyles,
-} from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
+import { createStyles, fade, makeStyles } from "@material-ui/core/styles";
+
 import SearchIcon from "@material-ui/icons/Search";
 
-const App = () => {
+const App = (props) => {
   const classes = useStyles();
   return (
     <div className="App">
@@ -65,8 +58,8 @@ const App = () => {
       </div>
 
       <Switch>
-        <Route path="/car">
-          <Car />
+        <Route path="/car/:carID">
+          <Car cars={props.cars} />
         </Route>
         <Route path="/">
           <Home />
@@ -76,7 +69,13 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    cars: state.cars,
+  };
+};
+export default connect(mapStateToProps, {})(App);
+//export default App;
 
 // <div className="boxes">
 //         <div className="box">

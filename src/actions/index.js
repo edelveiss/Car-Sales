@@ -1,16 +1,30 @@
 export const ADD_FEATURE = "ADD_FEATURE";
 export const REMOVE_FEATURE = "REMOVE_FEATURE";
 
-export const addFeature = (newFeature) => {
+export const addFeature = (newFeatureobj) => {
   return {
     type: ADD_FEATURE,
-    payload: newFeature,
+    payload: newFeatureobj,
   };
 };
 
-export const removeFeature = (removedFeature) => {
+export const removeFeature = (removedFeatureobj) => {
   return {
     type: REMOVE_FEATURE,
-    payload: removedFeature,
+    payload: removedFeatureobj,
   };
 };
+
+// export const addFeature = (newFeature) => {
+//   return {
+//     type: ADD_FEATURE,
+//     payload: newFeature,
+//   };
+// };
+
+// export const removeFeature = (removedFeature) => {
+//   return {
+//     type: REMOVE_FEATURE,
+//     payload: removedFeature,
+//   };
+// };
