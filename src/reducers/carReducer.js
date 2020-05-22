@@ -35,11 +35,11 @@ const initialState = {
         { id: 1, name: "Ventilated Front Seats", price: 1500 },
         {
           id: 2,
-          name: "Honda Satellite-Linked Navigation System",
+          name: "Honda Satellite Nav System",
           price: 2500,
         },
         { id: 3, name: "Premium sound system", price: 500 },
-        { id: 4, name: "LED Headlights with Auto-On/Off", price: 150 },
+        { id: 4, name: "LED Headlights", price: 150 },
       ],
     },
 
@@ -56,7 +56,7 @@ const initialState = {
         { id: 1, name: "Navigate on Autopilot", price: 1500 },
         {
           id: 2,
-          name: "Explicit Lyrics Bar on the Infotainment System",
+          name: "Explicit Lyrics Bar",
           price: 2500,
         },
         { id: 3, name: "Premium sound system", price: 500 },
